@@ -1,5 +1,14 @@
 # JavaScript Refresher
 
+* [let & const](#let--const)
+* [Arrow Functions](#arrow-functions)
+* [Exports & Imports](#exports--imports-modules)
+* [Class](#classes)
+* [Spread and Rest operators](#spread-and-rest-operators)
+* [Destructuring](#destructuring)
+* [Reference Types](#reference-types)
+* [Array Functions](#array-functions)
+
 ## let & const
 
 `let` and `const` are different ways of creating variables.
