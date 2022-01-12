@@ -422,3 +422,20 @@ Output
    name: "John"
 }
 ```
+
+## Array Functions
+
+Similar to Java streams and lambda expressions.
+
+Array functions like `map()`, `filter()`, `reduce()` etc are present.
+
+All array functions are documented [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array "Array Functions").
+
+```js
+const numbers = [1, 2, 3];
+
+const doubleNumArray = numbers.map(num => num * 2);
+
+console.log(numbers);
+console.log(doubleNumArray);
+```
