@@ -1,30 +1,12 @@
 import React, { Component } from "react";
+import TodoDataService from "../api/todo/TodoDataService";
 import "./ListTodos.css";
 
 class ListTodos extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      todos: [
-        {
-          id: 1,
-          description: "Learn React",
-          done: false,
-          targetDate: new Date()
-        },
-        {
-          id: 2,
-          description: "Become Rich",
-          done: false,
-          targetDate: new Date()
-        },
-        {
-          id: 3,
-          description: "Buy Vegetables",
-          done: false,
-          targetDate: new Date()
-        }
-      ]
+      todos: []
     };
   }
 
@@ -57,6 +39,23 @@ class ListTodos extends Component {
       </div>
     );
   }
+
+  // a component life-cycle method
+  // called immediately after a component is mounted
+  componentDidMount = () => {
+    TodoDataService.retrieveAllToDos()
+      .then((response) => this.handleSuccesfulResponse(response))
+      .catch((error) => this.handleError(error));
+  };
+
+  handleSuccesfulResponse = (response) => {
+    // console.log(response);
+    this.setState({ todos: response.data });
+  };
+
+  handleError = (error) => {
+    this.setState({ message: error.response.data.message });
+  };
 }
 
 export default ListTodos;
