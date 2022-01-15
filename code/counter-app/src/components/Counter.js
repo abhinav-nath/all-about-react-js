@@ -14,10 +14,10 @@ class Counter extends Component {
   render() {
     return (
       <div className="Counter">
-        <CounterButton by={1} parentIncrementMethod={this.increment} />
-        <CounterButton by={5} parentIncrementMethod={this.increment} />
-        <CounterButton by={10} parentIncrementMethod={this.increment} />
-        <CounterButton by={100} parentIncrementMethod={this.increment} />
+        <CounterButton by={1} parentIncrementMethod={this.increment} parentDecrementMethod={this.decrement} />
+        <CounterButton by={5} parentIncrementMethod={this.increment} parentDecrementMethod={this.decrement} />
+        <CounterButton by={10} parentIncrementMethod={this.increment} parentDecrementMethod={this.decrement} />
+        <CounterButton by={100} parentIncrementMethod={this.increment} parentDecrementMethod={this.decrement} />
         <span className="count">{this.state.counter}</span>
       </div>
     );
@@ -27,6 +27,13 @@ class Counter extends Component {
     console.log(`parent increment - ${by}`);
     this.setState((prevState) => {
       return { counter: prevState.counter + by };
+    });
+  };
+
+  decrement = (by) => {
+    console.log(`parent decrement - ${by}`);
+    this.setState((prevState) => {
+      return { counter: prevState.counter - by };
     });
   };
 }

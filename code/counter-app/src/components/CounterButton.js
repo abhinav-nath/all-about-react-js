@@ -17,6 +17,7 @@ class CounterButton extends Component {
     return (
       <div className="CounterButton">
         <button onClick={this.increment}>+{this.props.by}</button>
+        <button onClick={this.decrement}>-{this.props.by}</button>
       </div>
     );
   }
@@ -29,6 +30,14 @@ class CounterButton extends Component {
     });
 
     this.props.parentIncrementMethod(this.props.by);
+  };
+
+  decrement = () => {
+    this.setState((prevState) => {
+      return { counter: this.state.counter - this.props.by };
+    });
+
+    this.props.parentDecrementMethod(this.props.by);
   };
 }
 
