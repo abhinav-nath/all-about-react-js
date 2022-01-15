@@ -8,15 +8,19 @@ class Counter extends Component {
     super(); // mandatory
 
     this.state = {
-      counter: 0
+      counter: 0,
     };
   }
 
   render = () => {
+    const inlineStyle = { fontSize: "50px", padding: "15px 30px" };
+
     return (
       <div className="Counter">
         <button onClick={this.increment}>+1</button>
-        <span className="count">{this.state.counter}</span>
+        <span className="count" style={inlineStyle}>
+          {this.state.counter}
+        </span>
       </div>
     );
   };
