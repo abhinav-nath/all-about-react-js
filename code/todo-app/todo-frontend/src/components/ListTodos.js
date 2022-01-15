@@ -5,10 +5,11 @@ class ListTodos extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      todo: {
-        id: 1,
-        description: "Learn React"
-      }
+      todos: [
+        { id: 1, description: "Learn React" },
+        { id: 2, description: "Become Rich" },
+        { id: 3, description: "Buy Vegetables" }
+      ]
     };
   }
 
@@ -24,10 +25,12 @@ class ListTodos extends Component {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>{this.state.todo.id}</td>
-              <td>{this.state.todo.description}</td>
-            </tr>
+            {this.state.todos.map((todo) => (
+              <tr>
+                <td>{todo.id}</td>
+                <td>{todo.description}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
