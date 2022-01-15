@@ -18,8 +18,8 @@ class ListTodos extends Component {
           <table className="table">
             <thead>
               <tr>
-                <th>id</th>
-                <th>description</th>
+                <th>ID</th>
+                <th>Description</th>
                 <th>Is Completed?</th>
                 <th>Target Date</th>
               </tr>

@@ -2,10 +2,8 @@ package com.codecafe.todoapp.controller;
 
 import com.codecafe.todoapp.model.Todo;
 import com.codecafe.todoapp.service.TodoService;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,6 +21,16 @@ public class TodoController {
     @GetMapping
     public List<Todo> getAllTodos() {
         return todoService.findAll();
+    }
+
+    @DeleteMapping
+    public ResponseEntity<Void> deleteTodo(@PathVariable long id) {
+        Todo todo = todoService.deleteById(id);
+
+        if (todo != null)
+            return ResponseEntity.noContent().build();
+
+        return ResponseEntity.notFound().build();
     }
 
 }

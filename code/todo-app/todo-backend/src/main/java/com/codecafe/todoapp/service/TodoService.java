@@ -24,4 +24,22 @@ public class TodoService {
         return todos;
     }
 
+    public Todo findById(long id) {
+        return todos.stream()
+                .filter(t -> id == t.getId())
+                .findAny()
+                .orElse(null);
+    }
+
+    public Todo deleteById(long id) {
+        Todo todo = findById(id);
+
+        if (todo != null) {
+            todos.remove(todo);
+            return todo;
+        }
+
+        return null;
+    }
+
 }
