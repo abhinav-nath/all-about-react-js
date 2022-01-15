@@ -10,11 +10,6 @@ class Counter extends Component {
     this.state = {
       counter: 0
     };
-
-    // to make 'this' available to the increment function
-    // we need to bind 'this' to the increment function
-    // not required when we use arrow functions
-    // this.increment = this.increment.bind(this);
   }
 
   render = () => {
@@ -24,7 +19,7 @@ class Counter extends Component {
         <span className="count">{this.state.counter}</span>
       </div>
     );
-  }
+  };
 
   // Update the state by using setState()
   // counter++
@@ -32,7 +27,7 @@ class Counter extends Component {
     this.setState({
       counter: this.state.counter + 1,
     });
-  }
+  };
 }
 
 export default Counter;
