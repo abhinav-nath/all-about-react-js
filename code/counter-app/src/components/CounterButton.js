@@ -10,19 +10,12 @@ class CounterButton extends Component {
   render() {
     return (
       <div className="CounterButton">
-        <button onClick={this.increment}>+{this.props.by}</button>
-        <button onClick={this.decrement}>-{this.props.by}</button>
+        <button onClick={() => this.props.parentIncrementMethod(this.props.by)}>+{this.props.by}</button>
+        <button onClick={() => this.props.parentDecrementMethod(this.props.by)}>-{this.props.by}</button>
       </div>
     );
   }
 
-  increment = () => {
-    this.props.parentIncrementMethod(this.props.by);
-  };
-
-  decrement = () => {
-    this.props.parentDecrementMethod(this.props.by);
-  };
 }
 
 // Default value
