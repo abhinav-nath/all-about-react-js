@@ -15,10 +15,6 @@ class TodoApp extends Component {
       </div>
     );
   }
-
-  retrieveHello = () => {
-    console.log("retrieve clicked!");
-  };
 }
 
 export default TodoApp;

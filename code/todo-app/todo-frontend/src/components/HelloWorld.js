@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import HelloWorldService from "../api/todo/HelloWorldService";
 
 class HelloWorld extends Component {
   render() {
@@ -13,6 +14,10 @@ class HelloWorld extends Component {
       </div>
     );
   }
+
+  retrieveHello = () => {
+    HelloWorldService.executeHelloWorldService();
+  };
 }
 
 export default HelloWorld;
