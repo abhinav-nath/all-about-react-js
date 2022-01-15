@@ -8,7 +8,7 @@ class Counter extends Component {
     super(); // mandatory
 
     this.state = {
-      counter: 0,
+      counter: 0
     };
   }
 
@@ -29,5 +29,9 @@ class Counter extends Component {
     });
   };
 }
+
+Counter.defaultProps = {
+  by: 1
+};
 
 export default Counter;
