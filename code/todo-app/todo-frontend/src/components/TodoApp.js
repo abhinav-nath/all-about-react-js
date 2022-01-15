@@ -6,7 +6,6 @@ class TodoApp extends Component {
   render() {
     return (
       <div className="TodoApp">
-        <p>Todo Application</p>
         <ListTodos />
       </div>
     );
