@@ -20,14 +20,16 @@ class CounterButton extends Component {
         <span className="count">{this.state.counter}</span>
       </div>
     );
-  };
+  }
 
   // Update the state by using setState()
   // counter++
   increment = () => {
     this.setState({
-      counter: this.state.counter + this.props.by,
+      counter: this.state.counter + this.props.by
     });
+
+    this.props.parentIncrementMethod(this.props.by);
   };
 }
 
