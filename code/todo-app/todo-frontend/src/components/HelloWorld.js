@@ -16,7 +16,8 @@ class HelloWorld extends Component {
   }
 
   retrieveHello = () => {
-    HelloWorldService.executeHelloWorldService();
+    HelloWorldService.execute().then((response) => console.log(response));
+    //.catch();
   };
 }
 

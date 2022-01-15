@@ -1,6 +1,9 @@
+import axios from "axios";
+
 class HelloWorldService {
-  executeHelloWorldService() {
-    console.log("HelloWorldService Executed");
+  execute() {
+    // returns a Promise
+    return axios.get("http://localhost:8801/hello-world");
   }
 }
 
