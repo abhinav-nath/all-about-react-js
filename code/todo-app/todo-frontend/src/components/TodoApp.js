@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ListTodos from "./ListTodos";
+import HelloWorld from "./HelloWorld";
 
 class TodoApp extends Component {
   constructor(props) {
@@ -10,14 +11,7 @@ class TodoApp extends Component {
     return (
       <div className="TodoApp">
         <ListTodos />
-        <div className="card w-25 bg-light rounded mx-auto d-block">
-          <div className="card-body">
-            <p>Click below button to get a message from the backend</p>
-            <button onClick={this.retrieveHello} className="btn btn-outline-success">
-              Get Hello
-            </button>
-          </div>
-        </div>
+        <HelloWorld />
       </div>
     );
   }
