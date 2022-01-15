@@ -3,10 +3,9 @@ import React, { Component } from "react";
 class Footer extends Component {
   render() {
     return (
-      <div>
-        <hr />
-        Footer
-      </div>
+      <footer className="footer">
+        <span className="text-muted">A Full Stack Application Using React and Spring Boot</span>
+      </footer>
     );
   }
 }
