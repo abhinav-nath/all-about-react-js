@@ -19,6 +19,7 @@ class Counter extends Component {
         <CounterButton by={10} parentIncrementMethod={this.increment} parentDecrementMethod={this.decrement} />
         <CounterButton by={100} parentIncrementMethod={this.increment} parentDecrementMethod={this.decrement} />
         <span className="count">{this.state.counter}</span>
+        <div><button className="reset" onClick={this.reset}>Reset</button></div>
       </div>
     );
   }
@@ -36,6 +37,10 @@ class Counter extends Component {
       return { counter: prevState.counter - by };
     });
   };
+
+  reset = () => {
+    this.setState({ counter: 0 });
+  }
 }
 
 export default Counter;
