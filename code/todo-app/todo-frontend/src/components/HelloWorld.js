@@ -14,7 +14,10 @@ class HelloWorld extends Component {
       <div className="card w-25 bg-light rounded mx-auto d-block">
         <div className="card-body">
           <p>Click below button to get a message from the backend</p>
-          <button onClick={this.retrieveHello} className="btn btn-outline-success">
+          <button
+            onClick={this.retrieveHello}
+            className="btn btn-outline-success"
+          >
             Get Hello
           </button>
           <p>{this.state.message}</p>
@@ -24,14 +27,17 @@ class HelloWorld extends Component {
   }
 
   retrieveHello = () => {
-    HelloWorldService.execute().then((response) =>
-      this.handleSuccesfulResponse(response)
-    );
-    //.catch();
+    HelloWorldService.execute()
+      .then((response) => this.handleSuccesfulResponse(response))
+      .catch((error) => this.handleError(error));
   };
 
   handleSuccesfulResponse = (response) => {
     this.setState({ message: response.data });
+  };
+
+  handleError = (error) => {
+    this.setState({ message: error.response.data.message });
   };
 }
 
