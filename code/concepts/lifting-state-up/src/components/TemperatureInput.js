@@ -1,27 +1,20 @@
-import React, { Component } from "react";
+import React from "react";
 
 const scaleNames = {
   c: "Celsius",
   f: "Fahrenheit"
 };
 
-export default class TemperatureInput extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  handleChange = (e) => {
-    this.props.onTemperatureChange(e.target.value);
-  };
-
-  render() {
-    const temperature = this.props.temperature;
-    const scale = this.props.scale;
-    return (
-      <fieldset>
-        <legend>Enter temperature in {scaleNames[scale]}:</legend>
-        <input value={temperature} onChange={this.handleChange} />
-      </fieldset>
-    );
-  }
+export default function TemperatureInput(props) {
+  const temperature = props.temperature;
+  const scale = props.scale;
+  return (
+    <fieldset>
+      <legend>Enter temperature in {scaleNames[scale]}:</legend>
+      <input
+        value={temperature}
+        onChange={(e) => props.onTemperatureChange(e.target.value)}
+      />
+    </fieldset>
+  );
 }
