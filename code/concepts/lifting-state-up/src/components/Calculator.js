@@ -37,10 +37,12 @@ export default class Calculator extends Component {
   render() {
     const scale = this.state.scale;
     const temperature = this.state.temperature;
+
     const celsius =
       scale === "f"
         ? this.tryConvert(temperature, this.toCelsius)
         : temperature;
+
     const fahrenheit =
       scale === "c"
         ? this.tryConvert(temperature, this.toFahrenheit)
