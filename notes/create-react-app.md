@@ -21,3 +21,9 @@ Generates a new React project with TypeScript support built in
 ```shell
 npx create-react-app my-app --template typescript
 ```
+
+### File extensions
+
+React Component + JSX --> `.tsx`
+
+No JSX --> `.ts`
