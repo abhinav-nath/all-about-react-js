@@ -8,7 +8,6 @@ class HelloWorld extends Component {
       message: ""
     };
   }
-()
   render() {
     return (
       <div className="card w-25 bg-light rounded mx-auto d-block">
