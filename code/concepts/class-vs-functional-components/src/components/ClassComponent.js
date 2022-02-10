@@ -16,9 +16,10 @@ class ClassComponent extends React.Component {
 
   render() {
     return (
-      <div>
+      <div class="flex-child">
         <h1>{this.state.count}</h1>
         <button onClick={this.increase}>+</button>
+        <p>Class Component</p>
       </div>
     );
   }
