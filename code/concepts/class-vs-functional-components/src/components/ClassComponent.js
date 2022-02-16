@@ -19,7 +19,7 @@ class ClassComponent extends React.Component {
       <div class="flex-child">
         <h1>{this.state.count}</h1>
         <button onClick={this.increase}>+</button>
-        <p>Class Component</p>
+        <p>Class</p>
       </div>
     );
   }

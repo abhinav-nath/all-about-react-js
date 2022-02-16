@@ -11,7 +11,7 @@ function FunctionalComponent() {
     <div class="flex-child">
       <h1>{count}</h1>
       <button onClick={increase}>+</button>
-      <p>Functional Component</p>
+      <p>Functional</p>
     </div>
   );
 }
