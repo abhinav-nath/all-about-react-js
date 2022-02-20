@@ -7,18 +7,24 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
   // need to run it only once when we render our component
   // because we just want to add an event listener one time
   useEffect(() => {
-    document.body.addEventListener(
-      "click",
-      (event) => {
-        //console.log("BODY CLICKED");
+    const onBodyClick = (event) => {
+      //console.log("BODY CLICKED");
 
-        if (ref.current.contains(event.target)) {
-          return;
-        }
-        setOpen(false);
-      },
-      { capture: true }
-    );
+      if (ref.current.contains(event.target)) {
+        return;
+      }
+      setOpen(false);
+    };
+
+    document.body.addEventListener("click", onBodyClick, { capture: true });
+
+    // clean-up function (acts as a destructor)
+    // also invoked when the component is removed from DOM
+    return () => {
+      document.body.removeEventListener("click", onBodyClick, {
+        capture: true
+      });
+    };
   }, []); // send empty array as second arg to run it only once when the component is rendered
 
   const renderedOptions = options.map((option) => {
