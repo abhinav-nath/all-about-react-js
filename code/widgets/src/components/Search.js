@@ -1,12 +1,23 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 const Search = () => {
   const [term, setTerm] = useState("");
 
-  console.log("I RUN WITH EVERY RENDER");
-
   useEffect(() => {
-    console.log("useEffect triggered");
+    const searchWiki = async () => {
+      await axios.get("");
+    };
+
+    searchWiki();
+
+    /* instead of assigning the function to a variable and then invoke it,
+       we can directly invoke it like this:
+    
+      (async () => {
+        await axios.get("");
+      })();
+    */
   }, [term]);
 
   return (
