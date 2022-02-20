@@ -1,7 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const Dropdown = ({ options, selected, onSelectedChange }) => {
   const [open, setOpen] = useState(false);
+
+  // need to run it only once when we render our component
+  // because we just want to add an event listener one time
+  useEffect(() => {
+    document.body.addEventListener("click", () => {
+      console.log("Click detected!!");
+    });
+  }, []); // send empty array as second arg to run it only once when the component is rendered
 
   const renderedOptions = options.map((option) => {
     if (option.value === selected.value) {
