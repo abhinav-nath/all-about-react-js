@@ -39,7 +39,10 @@ export default () => {
 
   return (
     <div>
-      <button onClick={() => setShowDropdown(!showDropDown)}>
+      <button
+        className="ui button"
+        onClick={() => setShowDropdown(!showDropDown)}
+      >
         Toggle Dropdown
       </button>
       {showDropDown && (
