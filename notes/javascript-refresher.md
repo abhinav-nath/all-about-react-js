@@ -368,6 +368,10 @@ console.log(a);  // Hello
 console.log(b);  // World
 ```
 
+> The square brackets `[]` on the LHS do not create any array.
+<br>
+Instead, it is a way to tell JavaScript that we need access to the first element of the array and assign it to a variable `a` and similarly we need access to the second element of the array and assign it to variable `b`.
+
 ```js
 const numbers = [1, 2, 3];
 
