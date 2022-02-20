@@ -19,20 +19,25 @@ const Search = () => {
       setResults(data.query.search);
     };
 
-    const timeoutId = setTimeout(() => {
-      if (term) {
-        searchWiki();
-      }
-    }, 500);
+    if (term && !results.length) {
+      searchWiki();
+    } else {
+      const timeoutId = setTimeout(() => {
+        if (term) {
+          searchWiki();
+        }
+      }, 500);
 
-    // It is invoked when the component is re-rendered
-    // component is re-rendered when something is changed in the search term
-    // everytime search term is changed then cancel the previous timer
-    // Goal is to make a search API call only if the user stops typing
-    // for 500ms
-    return () => {
-      clearTimeout(timeoutId);
-    };
+      // Clean-up function
+      // It is invoked when the component is re-rendered
+      // component is re-rendered when something is changed in the search term
+      // everytime search term is changed then cancel the previous timer
+      // Goal is to make a search API call only if the user stops typing
+      // for 500ms
+      return () => {
+        clearTimeout(timeoutId);
+      };
+    }
   }, [term]);
 
   const renderedResults = results.map((result) => {
