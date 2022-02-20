@@ -6,18 +6,18 @@ const Search = () => {
 
   useEffect(() => {
     const searchWiki = async () => {
-      await axios.get("");
+      await axios.get("https://en.wikipedia.org/w/api.php", {
+        params: {
+          action: "query",
+          list: "search",
+          origin: "*",
+          format: "json",
+          srsearch: term
+        }
+      });
     };
 
     searchWiki();
-
-    /* instead of assigning the function to a variable and then invoke it,
-       we can directly invoke it like this:
-    
-      (async () => {
-        await axios.get("");
-      })();
-    */
   }, [term]);
 
   return (
