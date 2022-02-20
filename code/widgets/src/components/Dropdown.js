@@ -1,14 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 const Dropdown = ({ options, selected, onSelectedChange }) => {
   const [open, setOpen] = useState(false);
+  const ref = useRef();
 
   // need to run it only once when we render our component
   // because we just want to add an event listener one time
   useEffect(() => {
     document.body.addEventListener(
       "click",
-      () => {
+      (event) => {
+        //console.log("BODY CLICKED");
+
+        if (ref.current.contains(event.target)) {
+          return;
+        }
         setOpen(false);
       },
       { capture: true }
@@ -24,20 +30,28 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
       <div
         key={option.value}
         className="item"
-        onClick={() => onSelectedChange(option)}
+        onClick={() => {
+          //console.log("ITEM CLICKED");
+          onSelectedChange(option);
+        }}
       >
         {option.label}
       </div>
     );
   });
 
+  //console.log(ref.current);
+
   return (
-    <div className="ui form">
+    <div className="ui form" ref={ref}>
       <div className="field">
         <label className="label">Select a Color</label>
         <div
           className={`ui selection dropdown ${open ? "visible active" : ""}`}
-          onClick={() => setOpen(!open)}
+          onClick={() => {
+            //console.log("DROPDOWN CLICKED");
+            setOpen(!open);
+          }}
         >
           <i className="dropdown icon" />
           <div className="text">{selected.label}</div>
