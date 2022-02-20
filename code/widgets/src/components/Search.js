@@ -24,6 +24,11 @@ const Search = () => {
         searchWiki();
       }
     }, 500);
+
+    // it is invoked when the component is re-rendered
+    return () => {
+      console.log("CLEANUP");
+    };
   }, [term]);
 
   const renderedResults = results.map((result) => {
