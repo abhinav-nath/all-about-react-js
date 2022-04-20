@@ -408,7 +408,7 @@ console.log(secondPerson);
 
 Output
 
-```
+```js
 [object Object] {
    name: "Tom"
 }
@@ -430,7 +430,7 @@ console.log(secondPerson);
 
 Output
 
-```
+```js
 [object Object] {
    name: "John"
 }
