@@ -32,7 +32,7 @@ Here are the most important hooks in React
 ## Secret behind the syntax of useState hook (array destructuring)
 
 ```js
-const [activeIndex, setActiveIndex] = useState(null);
+const [color, ] = useState("green");
 ```
 
 The `useState` hook always returns an array with exactly 2 elements.
@@ -40,7 +40,7 @@ The `useState` hook always returns an array with exactly 2 elements.
 Above syntax is a shorthand form of below code:
 
 ```js
-const things = useState(null);
-const activeIndex = things[0];
-const setActiveIndex = things[1];
+const things = useState("green");
+const color = things[0];
+const setColor = things[1];
 ```
