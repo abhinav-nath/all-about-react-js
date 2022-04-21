@@ -18,34 +18,34 @@ When exactly this code will be executed is controlled by the **second argument**
 
 There are three ways to control it:
 
-1. Empty Array
+1. **Empty Array**
 
-  - Run at the initial render of the component
+   - Run at the initial render of the component
 
-    ```js
-    useEffect(() => {
-      console.log('abc');
-    }, []);
-    ```
+     ```js
+     useEffect(() => {
+       console.log('abc');
+     }, []);
+     ```
 
-2. Nothing
+2. **Nothing**
 
-  - Run at the initial render of the component
-  - Run after every re-render
+   - Run at the initial render of the component
+   - Run after every re-render
 
-    ```js
-    useEffect(() => {
-      console.log('abc');
-      });
-    ```
+     ```js
+     useEffect(() => {
+       console.log('abc');
+       });
+     ```
 
-3. An Array with some values
+3. **An Array with some values**
 
-  - Run at the initial render of the component
-  - Run after every re-render **_if_** data has changed since last render
+   - Run at the initial render of the component
+   - Run after every re-render **_if_** data has changed since last render
 
-    ```js
-    useEffect(() => {
-      console.log('abc');
-    }, [data]);
-    ```
+     ```js
+     useEffect(() => {
+       console.log('abc');
+     }, [data]);
+     ```
