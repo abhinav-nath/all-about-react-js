@@ -57,3 +57,38 @@ There are three ways to control it:
        console.log('abc');
      }, [data1, data2]);
      ```
+
+## useEffect's Clean-up function
+
+There is only one possible value that we can return from the arrow function defined inside useEffect.
+
+The only thing allowed is **an another arrow function**
+
+```js
+useEffect(() => {
+  console.log('Initial render or the term was changed');
+
+  return () => {
+    console.log('CLEAN-UP');
+  };
+}, [term]);
+```
+
+- React keeps a handle on this `clean-up function` when the component is first rendered
+
+- On the next render, the clean-up function from the last render is executed first
+
+- And after that the whole arrow function inside the useEffect is executed
+
+Console logs when the component is rendered for the first time:
+
+```
+Initial render or the term was changed
+```
+
+When `term` gets changed:
+
+```
+CLEAN-UP
+Initial render or the term was changed
+```
