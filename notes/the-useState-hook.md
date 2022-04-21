@@ -44,3 +44,19 @@ const things = useState("green");
 const color = things[0];
 const setColor = things[1];
 ```
+
+## Setter Functions
+
+```js
+const [activeIndex, setActiveIndex] = useState(null); // initialise to null
+
+const onTitleClick = (index) => {
+  setActiveIndex(index);
+};
+```
+
+As soon as we call any setter function coming from the useState hook, our entire component is going to re-render.
+
+When the component gets re-rendered, the default initialisation value will not be used anymore.
+
+The value passed in the setter function will be used instead (just like traditional `for-loop`).
