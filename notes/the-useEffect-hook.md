@@ -42,10 +42,18 @@ There are three ways to control it:
 3. **An Array with some values**
 
    - Run at the initial render of the component
-   - Run after every re-render **_if_** data has changed since last render
+   - Run after every re-render **_if_** `data` has changed since last render
 
      ```js
      useEffect(() => {
        console.log('abc');
      }, [data]);
+     ```
+
+   We can pass multiple values to the array. useEffect will be triggered if any of them gets changed.
+
+     ```js
+     useEffect(() => {
+       console.log('abc');
+     }, [data1, data2]);
      ```
