@@ -4,12 +4,16 @@ import Convert from "./Convert";
 
 const options = [
   {
-    label: "Afrikaans",
-    value: "af"
+    label: "Spanish",
+    value: "es"
   },
   {
-    label: "Arabic",
-    value: "ar"
+    label: "French",
+    value: "fr"
+  },
+  {
+    label: "Marathi",
+    value: "mr"
   },
   {
     label: "Hindi",
@@ -18,6 +22,10 @@ const options = [
   {
     label: "Dutch",
     value: "nl"
+  },
+  {
+    label: "Korean",
+    value: "ko"
   }
 ];
 
