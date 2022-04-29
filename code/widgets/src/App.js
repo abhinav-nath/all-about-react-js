@@ -34,10 +34,10 @@ const options = [
   }
 ];
 
+const showAccordion = () => {
+  if (window.location.pathname === "/") return <Accordion items={items} />;
+};
+
 export default () => {
-  return (
-    <div>
-      <Translate />
-    </div>
-  );
+  return <div>{showAccordion()}</div>;
 };
