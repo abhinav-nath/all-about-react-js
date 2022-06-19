@@ -2,6 +2,12 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Install redux and related dependencies:
+
+```
+npm install --save @types/react-redux axios react-redux redux redux-thunk
+```
+
 ## Available Scripts
 
 In the project directory, you can run:
