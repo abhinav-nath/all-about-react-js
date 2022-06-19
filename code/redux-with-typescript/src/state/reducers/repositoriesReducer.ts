@@ -6,7 +6,21 @@ interface RepositoriesState {
 
 interface Action {
   type: string;
-  payload?: any; // may or may not have a payload
+  payload?: any; // may or may not have a payload property
+}
+
+interface SearchRepositoriesAction {
+  type: "search_repositories";
+}
+
+interface SearchRepositoriesSuccessAction {
+  type: "search_repositories_success";
+  payload: string[];
+}
+
+interface SearchRepositoriesErrorAction {
+  type: "search_repositories_error";
+  payload: string;
 }
 
 const reducer = (
