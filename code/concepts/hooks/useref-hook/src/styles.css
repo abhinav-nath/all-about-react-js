@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  justify-content: center;
+  margin: 50px 50px 50px 50px;
+}
+
+.usecase {
+  outline: solid 1px blue;
+  margin: 50px 50px 50px 50px;
+  padding: 40px 40px 40px 40px;
+}

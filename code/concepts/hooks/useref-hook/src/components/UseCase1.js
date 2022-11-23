@@ -1,3 +1,4 @@
+import "../styles.css";
 import React, { useState, useEffect, useRef } from "react";
 
 const UseCase1 = () => {
@@ -11,11 +12,11 @@ const UseCase1 = () => {
   });
 
   return (
-    <>
+    <div className="usecase">
       <input value={name} onChange={(e) => setName(e.target.value)} />
       <div>My name is {name}</div>
       <div>I rendered {renderCount.current} times</div>
-    </>
+    </div>
   );
 };
 
