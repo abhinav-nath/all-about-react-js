@@ -1,6 +1,13 @@
-# The useEffect hook
+# The `useEffect` hook
+
+The _Effect Hook_ lets you perform side effects in function components.
 
 Allows function components to use something _like_ lifecycle methods.
+
+### What does `useEffect` do?
+
+By using this Hook, you tell React that your component needs to do something after render.
+React will remember the function you passed (we'll refer to it as our "effect"), and call it later after performing the DOM updates.
 
 We configure the hook to run some code automatically in one of the three scenarios:
 
@@ -10,7 +17,7 @@ We configure the hook to run some code automatically in one of the three scenari
 
 3. When the component is rendered for the **_first time and whenever it re-renders and some piece of data has changed_**
 
-## useEffect second argument
+## `useEffect` second argument
 
 Code inside the useEffect will be executed automatically at some point of time.
 
@@ -58,11 +65,11 @@ There are three ways to control it:
      }, [data1, data2]);
      ```
 
-## useEffect's Clean-up function
+## `useEffect`'s Clean-up function
 
-There is only one possible value that we can return from the arrow function defined inside useEffect.
+There is only one possible value that we can return from the arrow function defined inside `useEffect`.
 
-The only thing allowed is **an another arrow function**
+The only thing allowed is **an another arrow function**:
 
 ```js
 useEffect(() => {
