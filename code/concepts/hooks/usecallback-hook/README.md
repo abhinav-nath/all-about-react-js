@@ -1,5 +1,11 @@
 # The `useCallback` hook
 
+`useCallback` lets you cache a function definition between re-renders.
+
+```js
+const cachedFn = useCallback(fn, dependencies)
+```
+
 ```js
 const memoizedCallback = useCallback(
   () => {
