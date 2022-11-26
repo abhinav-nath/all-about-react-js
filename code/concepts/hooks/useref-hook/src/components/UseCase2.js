@@ -12,7 +12,8 @@ const UseCase1 = () => {
   }
 
   return (
-    <div className="usecase">
+    <div className="card">
+      <h4>Usecase 2</h4>
       <input
         ref={inputRef}
         value={name}

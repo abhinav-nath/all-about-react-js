@@ -12,7 +12,8 @@ const UseCase1 = () => {
   });
 
   return (
-    <div className="usecase">
+    <div className="card">
+      <h4>Usecase 1</h4>
       <input value={name} onChange={(e) => setName(e.target.value)} />
       <div>My name is {name}</div>
       <div>I rendered {renderCount.current} times</div>

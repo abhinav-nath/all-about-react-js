@@ -12,7 +12,8 @@ const UseCase1 = () => {
   }, [name]);
 
   return (
-    <div className="usecase">
+    <div className="card">
+      <h4>Usecase 3</h4>
       <input value={name} onChange={(e) => setName(e.target.value)} />
       <div>
         My name is {name} and it used to be {prevName.current}

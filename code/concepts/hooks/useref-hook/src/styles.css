@@ -1,11 +1,66 @@
+h2 {
+  text-align: center;
+  color: slategrey;
+}
+
 .container {
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
   margin: 50px 50px 50px 50px;
 }
 
-.usecase {
-  outline: solid 1px blue;
-  margin: 50px 50px 50px 50px;
-  padding: 40px 40px 40px 40px;
+.card {
+  height: 18em;
+  width: 20em;
+  margin: 10px;
+  padding-left: 50px;
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 5px 5px 15px #e1e1e3, -15px -15px 27px #ffffff;
+}
+
+.card button {
+  display: inline-block;
+  outline: 0;
+  cursor: pointer;
+  padding: 5px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  vertical-align: middle;
+  border: 1px solid;
+  border-radius: 6px;
+  color: #24292e;
+  background-color: #fafbfc;
+  border-color: #1b1f2326;
+  box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px 0px,
+    rgba(255, 255, 255, 0.25) 0px 1px 0px 0px inset;
+  transition: 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+  transition-property: color, background-color, border-color;
+  margin: 10px 10px 10px 10px;
+}
+
+.card button:hover {
+  background-color: #f3f4f6;
+  border-color: #1b1f2326;
+  transition-duration: 0.1s;
+}
+
+.card h4 {
+  color: seagreen;
+}
+
+.card input {
+  border: none;
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: #f2f2f2;
+  padding: 10px;
+  border-radius: 3px;
+  width: 230px;
+  font-size: 14px;
 }
