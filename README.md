@@ -3,5 +3,8 @@
 * [create-react-app](./notes/create-react-app.md)
 * [JavaScript refresher](./notes/javascript-refresher.md)
 * [React props system](./notes/react-props-system.md)
-* [The useState hook](./notes/the-useState-hook.md)
-* [The useEffect hook](./notes/the-useEffect-hook.md)
+* Hooks
+  - [useState](./code/concepts/hooks/usestate-hook)
+  - [useEffect](./code/concepts/hooks/useeffect-hook)
+  - [useRef](./code/concepts/hooks/useref-hook)
+  - [useCallback](./code/concepts/hooks/usecallback-hook)
