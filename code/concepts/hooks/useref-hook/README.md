@@ -1,70 +1,121 @@
-# Getting Started with Create React App
+# The `useRef` Hook
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The `useRef` Hook allows you to persist values between renders.
 
-## Available Scripts
+It can be used to store a mutable value that does not cause a re-render when updated.
 
-In the project directory, you can run:
+It can be used to access a DOM element directly.
 
-### `npm start`
+## Does Not Cause Re-renders
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+If we tried to count how many times our application renders using the `useState` Hook, we would be caught in an infinite loop since this Hook itself causes a re-render.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+To avoid this, we can use the `useRef` Hook.
 
-### `npm test`
+Use `useRef` to track application renders:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```js
+import { useState, useEffect, useRef } from "react";
+import ReactDOM from "react-dom/client";
 
-### `npm run build`
+function App() {
+  const [inputValue, setInputValue] = useState("");
+  const count = useRef(0);
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  useEffect(() => {
+    count.current = count.current + 1;
+  });
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  return (
+    <>
+      <input
+        type="text"
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+      />
+      <h1>Render Count: {count.current}</h1>
+    </>
+  );
+}
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
+```
 
-### `npm run eject`
+`useRef()` only returns one item. It returns an Object called `current`.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+When we initialize `useRef` we set the initial value: `useRef(0)`.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Accessing DOM Elements
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+In general, we want to let React handle all DOM manipulation.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+But there are some instances where `useRef` can be used without causing issues.
 
-## Learn More
+In React, we can add a `ref` attribute to an element to access it directly in the DOM.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Use `useRef` to focus the input:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```js
+import { useRef } from "react";
+import ReactDOM from "react-dom/client";
 
-### Code Splitting
+function App() {
+  const inputElement = useRef();
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+  const focusInput = () => {
+    inputElement.current.focus();
+  };
 
-### Analyzing the Bundle Size
+  return (
+    <>
+      <input type="text" ref={inputElement} />
+      <button onClick={focusInput}>Focus Input</button>
+    </>
+  );
+}
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
+```
 
-### Making a Progressive Web App
+## Tracking State Changes
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+The `useRef` Hook can also be used to keep track of previous state values.
 
-### Advanced Configuration
+This is because we are able to persist `useRef` values between renders.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Use `useRef` to keep track of previous state values:
 
-### Deployment
+```js
+import { useState, useEffect, useRef } from "react";
+import ReactDOM from "react-dom/client";
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+function App() {
+  const [inputValue, setInputValue] = useState("");
+  const previousInputValue = useRef("");
 
-### `npm run build` fails to minify
+  useEffect(() => {
+    previousInputValue.current = inputValue;
+  }, [inputValue]);
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  return (
+    <>
+      <input
+        type="text"
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+      />
+      <h2>Current Value: {inputValue}</h2>
+      <h2>Previous Value: {previousInputValue.current}</h2>
+    </>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
+```
+
+This time we use a combination of `useState`, `useEffect`, and `useRef` to keep track of the previous state.
+
+In the `useEffect`, we are updating the `useRef` current value each time the `inputValue` is updated by entering text into the input field.
